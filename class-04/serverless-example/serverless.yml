@@ -1,0 +1,17 @@
+service: exercise-class-04
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  getTransaction:
+    handler: src/handler.main
+    events:
+      - http:
+          path: transaction
+          method: post
+          cors: true
