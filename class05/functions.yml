@@ -5,3 +5,27 @@ validateAndCreate:
         path: validate
         method: post
         cors: true
+
+getUser:
+  handler: users/index.getUser
+  events:
+    - http:
+        path: user
+        method: get
+
+
+createToken:
+  handler: auth/index.createToken
+  events:
+    - http:
+        path: createToken
+        method: post
+        cors: true
+
+validateToken:
+  handler: auth/index.validateToken
+  events:
+    - http:
+        path: validateToken
+        method: post
+        cors: true
