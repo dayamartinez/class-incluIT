@@ -1,0 +1,43 @@
+{
+  "_from": "array-left-rotation-test",
+  "_id": "array-left-rotation-test@1.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-yJ7Gr+5wyCJTi07NLs1nq+6czOgDKHbSWrCZNxxWqtuVGo0RpzDTRQmXa6tJIvhRkmQsmZx3VjxhcK6VENqtKw==",
+  "_location": "/array-left-rotation-test",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "array-left-rotation-test",
+    "name": "array-left-rotation-test",
+    "escapedName": "array-left-rotation-test",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/array-left-rotation-test/-/array-left-rotation-test-1.0.3.tgz",
+  "_shasum": "453d72169302e1965971fb367169c7a5c55ea3a7",
+  "_spec": "array-left-rotation-test",
+  "_where": "C:\\Users\\Usuario\\class-incluIT\\class-03\\Exercise2",
+  "author": {
+    "name": "Dayamar"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Given an array and a number, n, perform n left rotations on the array",
+  "keywords": [
+    "array",
+    "rotation"
+  ],
+  "license": "ISC",
+  "main": "src/index.js",
+  "name": "array-left-rotation-test",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.3"
+}
