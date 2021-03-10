@@ -1,0 +1,7 @@
+validateAndCreate:
+  handler: validate/index.validateAndCreate
+  events:
+    - http:
+        path: validate
+        method: post
+        cors: true
