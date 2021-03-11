@@ -1,2 +1,2 @@
 # class-incluIT
-Exercises resolved for each class
+Tasks and Exercises solved for Incluit-training
