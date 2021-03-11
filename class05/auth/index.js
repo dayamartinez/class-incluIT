@@ -17,16 +17,14 @@ async function createToken(event, context){
 }
 
 async function validateToken(event, context){
-    const token = event.headers.authorization || '';
-
-   
+    //const token = event.headers.authorization || '';   
     try {
         const user = jwt.decode(token, 'secret1');
 
         return {
             statusCode: 200,
             body: JSON.stringify({
-                message: `Welcome user id ${user.userId}`
+                message: `Welcome ${user.userId}`
             })
         };
     }
@@ -41,4 +39,4 @@ async function validateToken(event, context){
 
 }
 
-module.exports = {createToken, validateToken}
+module.exports = {createToken}
