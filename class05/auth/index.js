@@ -1,6 +1,6 @@
 const jwt = require('jwt-simple')
 
-async function createToken(event, context){
+async function createToken(event){
 
     const payload = typeof event.body === 'string' ? JSON.parse(event.body) : event.body
 
@@ -8,7 +8,7 @@ async function createToken(event, context){
 
     const token = jwt.encode({
         userId: payload.userId
-        }, payload.password )
+        }, 'secret' )
 
     return {
         statusCode: 200,
@@ -16,15 +16,16 @@ async function createToken(event, context){
     }
 }
 
-async function validateToken(event, context){
-    //const token = event.headers.authorization || '';   
+async function validateToken(event){
+    const token = event.headers.authorization || '';   
+
     try {
-        const user = jwt.decode(token, 'secret1');
+       jwt.decode(token, 'secret');
 
         return {
             statusCode: 200,
             body: JSON.stringify({
-                message: `Welcome ${user.userId}`
+                message: `Welcome`
             })
         };
     }
@@ -39,4 +40,4 @@ async function validateToken(event, context){
 
 }
 
-module.exports = {createToken}
+module.exports = {createToken, validateToken}

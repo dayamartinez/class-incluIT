@@ -24,28 +24,28 @@ AWS.config.update({
 async function validateAndCreate(event, context){
     const DocumentClient = new AWS.DynamoDB.DocumentClient();
 
-    const payload = typeof event.body === 'string' 
+    const Item = (typeof event.body === 'string')
                     ? JSON.parse(event.body) : event.body
 
-    payload.userId = Date.now().toString();
+    Item.userId = Date.now().toString();
 
-    if(!userSchema.validate(payload)){
+    if(!userSchema.validate(Item)){
         return {
             statusCode: 400,
             body: JSON.stringify({
                 message: userSchema.getValidationErrors()
             })
-        }
+        };
     }
 
     await DocumentClient.put({
         TableName: process.env.USERS || 'users',
-        Item: payload
-    }) 
+        Item
+    }).promise() 
 
     return {
         statusCode: 200,
-        body: JSON.stringify(payload)
+        body: JSON.stringify(Item)
     }
 }
 

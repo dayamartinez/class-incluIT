@@ -5,26 +5,25 @@ AWS.config.update({
 	endpoint: "http://localhost:8000"
 })
 
-async function getUser(event, context){
+async function getUser(){
 
-    const DocumentClient = new AWS.DynamoDB.DocumentClient()
+    const DocumentClient = new AWS.DynamoDB.DocumentClient();
 
-    const { Data } = DocumentClient.query({
+    const { Items } = await DocumentClient.query({
         TableName: process.env.USERS || 'users',
         KeyConditionExpression: '#id = :id',
         ExpressionAttributeNames: {
             '#id': 'userId'
         },
         ExpressionAttributeValues: {
-            ':id': event.body.userId
+            ':id': "1615511893898"
         }
-    }).promise()
-
+    }).promise();
+   
     return {
         statusCode: 200,
-        body: JSON.stringify(Data)
-    }
-
+        body: JSON.stringify(Items)
+    };
 }
 
 module.exports = {getUser}
